@@ -1,0 +1,25 @@
+.cityImg {
+  height: 13rem;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  border-radius: 30px;
+}
+
+.cityImg img {
+  height: auto;
+  width: 100%;
+  object-fit: cover;
+  object-position: bottom;
+  margin-bottom: -25%;
+  border-radius: 30px;
+}
+
+.rounded-carousel .carousel-inner {
+  border-radius: 30px;
+  overflow: hidden;
+}
+
+.rounded-carousel .carousel-item img {
+  border-radius: 30px;
+}

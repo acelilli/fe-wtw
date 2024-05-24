@@ -1,0 +1,9 @@
+.myContent {
+  height: 70%;
+  width: 60%;
+  display: flex;
+  padding: 1rem;
+  margin: 1rem;
+  border-radius: 50px;
+  background-color: rgb(117, 180, 227, 0.3);
+}
