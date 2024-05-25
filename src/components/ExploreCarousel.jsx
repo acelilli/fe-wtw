@@ -36,8 +36,8 @@ export function ExploreCarousel() {
           <Carousel.Caption>
             <h3>{city.cityName}</h3>
             <div>
-              <p>Temperature: {kelvinToCelsius(city.main.temp)}°C</p>
-              <p>Weather: {city.weather[0].description}</p>
+              <p className="pb-0 mb-0">Temperature: {kelvinToCelsius(city.main.temp)}°C</p>
+              <p className="pb-0 mb-2">Weather: {city.weather[0].description}</p>
             </div>
           </Carousel.Caption>
         </Carousel.Item>

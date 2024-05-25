@@ -6,7 +6,7 @@ import axios from "axios";
 export const cities = [
   {
     cityName: "Rome",
-    imgUrl: "https://cdn.pixabay.com/photo/2020/05/17/12/56/rome-5181486_1280.jpg",
+    imgUrl: "https://cdn.pixabay.com/photo/2017/09/08/09/47/rome-2728216_1280.jpg",
     lat: 41.9028,
     lon: 12.4964,
   },
