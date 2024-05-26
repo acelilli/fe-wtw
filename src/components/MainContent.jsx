@@ -40,7 +40,7 @@ export default function MainContent() {
           <Col md={4}>
             <MyDestinations onCitySearch={handleCitySearch} />
           </Col>
-          <Col md={6} className="d-flex flex-column align-items-center py-3">
+          <Col md={8} className="d-flex flex-column align-items-center py-3 px-4">
             <CheckWeather onCitySearch={handleCitySearch} />
             {weatherData && <WeatherCard weatherData={weatherData} addDestination={addDestination} />}
           </Col>

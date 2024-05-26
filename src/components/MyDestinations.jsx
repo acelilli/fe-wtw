@@ -2,6 +2,8 @@ import { Button, Container } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { removeDestination } from "../redux/destinationsSlice";
 import { fetchACity, fetchWeather } from "../redux/checkWeatherSlice";
+import SavedSearchIcon from "@mui/icons-material/SavedSearch";
+import DeleteOutlineRoundedIcon from "@mui/icons-material/DeleteOutlineRounded";
 
 export default function MyDestinations({ onCitySearch }) {
   const myDestinations = useSelector((state) => state.destinations.myDestinations);
@@ -33,19 +35,24 @@ export default function MyDestinations({ onCitySearch }) {
   };
 
   return (
-    <Container>
+    <Container className="p-3">
       <h3>My Destinations</h3>
-      <ul>
+      <ul className="list-unstyled">
         {myDestinations.length > 0 ? (
           myDestinations.map((city, index) => (
-            <li key={index}>
-              {city} -{" "}
-              <Button className="btn-info" onClick={() => handleSeeWeather(city)}>
-                C
-              </Button>
-              <Button className="btn-danger" onClick={() => handleRemoveDestination(city)}>
-                X
-              </Button>
+            <li
+              key={index}
+              className="bg-white p-1 px-2 rounded-3 d-flex justify-content-between align-items-center"
+            >
+              {city}{" "}
+              <div>
+                <Button className="btn-info mx-1 " onClick={() => handleSeeWeather(city)}>
+                  <SavedSearchIcon />
+                </Button>
+                <Button className="btn-danger" onClick={() => handleRemoveDestination(city)}>
+                  <DeleteOutlineRoundedIcon />
+                </Button>
+              </div>
             </li>
           ))
         ) : (
