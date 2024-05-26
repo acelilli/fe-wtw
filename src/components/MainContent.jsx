@@ -29,10 +29,6 @@ export default function MainContent() {
   const addDestination = (city) => {
     setMyDestinations([...myDestinations, city]);
   };
-  /*
-  const handleSelectDestination = (data) => {
-    setWeatherData(data);
-  };*/
 
   return (
     <>
@@ -42,7 +38,7 @@ export default function MainContent() {
         </Row>
         <Row>
           <Col md={4}>
-            <MyDestinations />
+            <MyDestinations onCitySearch={handleCitySearch} />
           </Col>
           <Col md={6} className="d-flex flex-column align-items-center py-3">
             <CheckWeather onCitySearch={handleCitySearch} />
