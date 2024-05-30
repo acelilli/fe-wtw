@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   myDestinations: [],
 };
+
 const destinationsSlice = createSlice({
   name: "destinations",
   initialState,

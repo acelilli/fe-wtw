@@ -4,6 +4,7 @@ import { removeDestination } from "../redux/destinationsSlice";
 import { fetchACity, fetchWeather } from "../redux/checkWeatherSlice";
 import SavedSearchIcon from "@mui/icons-material/SavedSearch";
 import DeleteOutlineRoundedIcon from "@mui/icons-material/DeleteOutlineRounded";
+import Divider from "@mui/material/Divider";
 
 export default function MyDestinations({ onCitySearch }) {
   const myDestinations = useSelector((state) => state.destinations.myDestinations);
