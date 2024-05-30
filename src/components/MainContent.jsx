@@ -45,6 +45,16 @@ export default function MainContent() {
             {weatherData && <WeatherCard weatherData={weatherData} addDestination={addDestination} />}
           </Col>
         </Row>
+        <Row>
+          <div className="mt-2 mb-0">
+            <p className="text-muted mb-0">
+              Icons created by{" "}
+              <a href="https://www.flaticon.com/authors/freepik" title="sun icons">
+                Freepik - Flaticon
+              </a>
+            </p>
+          </div>
+        </Row>
       </Container>
     </>
   );
