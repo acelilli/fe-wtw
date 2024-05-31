@@ -41,7 +41,7 @@ export default function CheckWeather({ onCitySearch }) {
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
         />
-        <Form.Text className="text-muted">We'll research the weather of your next destination for you. ❤️</Form.Text>
+        <Form.Text className="text-muted">We'll research the weather of your next destination ❤️</Form.Text>
       </Form.Group>
       <Button variant="info" onClick={handleSearch}>
         <SearchIcon />

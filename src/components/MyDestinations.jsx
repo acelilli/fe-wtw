@@ -4,7 +4,6 @@ import { removeDestination } from "../redux/destinationsSlice";
 import { fetchACity, fetchWeather } from "../redux/checkWeatherSlice";
 import SavedSearchIcon from "@mui/icons-material/SavedSearch";
 import DeleteOutlineRoundedIcon from "@mui/icons-material/DeleteOutlineRounded";
-import Divider from "@mui/material/Divider";
 
 export default function MyDestinations({ onCitySearch }) {
   const myDestinations = useSelector((state) => state.destinations.myDestinations);
@@ -36,30 +35,33 @@ export default function MyDestinations({ onCitySearch }) {
   };
 
   return (
-    <Container className="p-3">
+    <Container className=" p-2 ms-2 mt-3">
       <h3>My Destinations</h3>
-      <ul className="list-unstyled">
-        {myDestinations.length > 0 ? (
-          myDestinations.map((city, index) => (
-            <li
-              key={index}
-              className="bg-white p-1 px-2 rounded-3 d-flex justify-content-between align-items-center"
-            >
-              {city}{" "}
-              <div>
-                <Button className="btn-info mx-1 " onClick={() => handleSeeWeather(city)}>
-                  <SavedSearchIcon />
-                </Button>
-                <Button className="btn-danger" onClick={() => handleRemoveDestination(city)}>
-                  <DeleteOutlineRoundedIcon />
-                </Button>
-              </div>
-            </li>
-          ))
-        ) : (
-          <li>No destinations added yet.</li>
-        )}
-      </ul>
+      <p className="text-muted fs-9"> Check or delete your destinations:</p>
+      <div className="destinations-container mt-2">
+        <ul className="list-unstyled px-2">
+          {myDestinations.length > 0 ? (
+            myDestinations.map((city, index) => (
+              <li
+                key={index}
+                className="bg-white p-1 px-2 rounded-3 d-flex justify-content-between align-items-center"
+              >
+                {city}{" "}
+                <div>
+                  <Button className="btn-info mx-1 " onClick={() => handleSeeWeather(city)}>
+                    <SavedSearchIcon />
+                  </Button>
+                  <Button className="btn-danger" onClick={() => handleRemoveDestination(city)}>
+                    <DeleteOutlineRoundedIcon />
+                  </Button>
+                </div>
+              </li>
+            ))
+          ) : (
+            <li>No destinations added yet.</li>
+          )}
+        </ul>
+      </div>
     </Container>
   );
 }

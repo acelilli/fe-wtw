@@ -1,0 +1,25 @@
+.destinations-container {
+  max-height: 50vh;
+  overflow-y: auto;
+  scrollbar-width: thin; /* Per Firefox */
+  scrollbar-color: #93d9ed #f1f1f1; /* Colore della scrollbar e del track per Firefox */
+}
+
+/* Stili per WebKit-based browsers (Chrome, Safari) */
+.destinations-container::-webkit-scrollbar {
+  width: 10px;
+}
+
+.destinations-container::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.destinations-container::-webkit-scrollbar-thumb {
+  background-color: #93d9ed;
+  border-radius: 10px;
+  border: 2px solid #f1f1f1; /* Per aggiungere un po' di spazio intorno al thumb */
+}
+
+.destinations-container::-webkit-scrollbar-thumb:hover {
+  background-color: #3bc0e5;
+}

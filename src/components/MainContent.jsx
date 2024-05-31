@@ -37,10 +37,10 @@ export default function MainContent() {
           <ExploreCarousel cities={cities} citiesWeather={citiesWeather} />
         </Row>
         <Row>
-          <Col md={4}>
+          <Col md={5}>
             <MyDestinations onCitySearch={handleCitySearch} />
           </Col>
-          <Col md={8} className="d-flex flex-column align-items-center py-3 px-4">
+          <Col md={7} className="d-flex flex-column align-items-center py-3 px-4">
             <CheckWeather onCitySearch={handleCitySearch} />
             {weatherData && <WeatherCard weatherData={weatherData} addDestination={addDestination} />}
           </Col>

@@ -1,9 +1,10 @@
 import Card from "react-bootstrap/Card";
-import { Button, Container, Row, Col } from "react-bootstrap";
+import { Button, Row, Col } from "react-bootstrap";
 import { addDestination } from "../redux/destinationsSlice";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import FavoriteBorderRoundedIcon from "@mui/icons-material/FavoriteBorderRounded";
+import "../assets/weatherCard.css";
 
 export default function WeatherCard({ weatherData }) {
   const dispatch = useDispatch();
@@ -22,7 +23,7 @@ export default function WeatherCard({ weatherData }) {
   // nel weatherData, la temperatura viene stampatain Kelvin, non in Celsius. Quindi definisco una funzione per ritornarmi la temperatura in celius
   function kelvinToCelsius(kelvin) {
     const celsius = kelvin - 273.15;
-    return celsius.toFixed(2);
+    return celsius.toFixed(0);
   }
 
   //Parte del codice dedicato alle icone
@@ -38,39 +39,37 @@ export default function WeatherCard({ weatherData }) {
     <Card className="ms-0 w-100 rounded-5">
       <Card.Body className="position-relative">
         <Row className="p-2 d-flex justify-content-center align-items-center">
-          <Col xs={12} md={6} className="justify-content-center">
-            <h1 className="mb-0">{weatherData.name}</h1>
-            <p className="text-muted pt-0">{weatherData.weather[0].description}</p>
+          <Col xs={12} md={6} className="justify-content-center my-0">
+            <h1 className="my-2">{weatherData.name}</h1>
+            <p className="text-muted pt-0 mb-0">{weatherData.weather[0].description}</p>
+            {!isPlaceholder && <p className="fs-4 mb-0">{kelvinToCelsius(weatherData.main.temp)}°C</p>}
           </Col>
-          <Col xs={12} md={6} className=" justify-content-center">
+          <Col xs={12} md={6} className=" justify-content-center my-1 py-0">
             <div>
               <img src={iconPath} alt="Weather Icon" style={{ width: "100%", maxWidth: "110px" }} />
             </div>
           </Col>
         </Row>
+        <hr className="ms-1" />
         <Row className="d-flex justify-content-space-evenly">
-          <Col xs={12} md={6} className="mt-3 p-0">
-            <hr />
+          <Col xs={12} md={6} className="mt-1 p-0">
             {!isPlaceholder && (
               <div>
-                <p className="fs-4">{kelvinToCelsius(weatherData.main.temp)}°C</p>
-                <p className="text-muted">
-                  Temp. Min: {kelvinToCelsius(weatherData.main.temp_min)}°C
+                <p className="text-muted mt-1">
+                  Min: {kelvinToCelsius(weatherData.main.temp_min)}°C
                   <br />
-                  Temp. Max: {kelvinToCelsius(weatherData.main.temp_max)}°C
+                  Max: {kelvinToCelsius(weatherData.main.temp_max)}°C
                 </p>
               </div>
             )}
           </Col>
-          <Col xs={12} md={6} className="mt-3 ">
+          <Col xs={12} md={6} className="mt-1 ">
             {!isPlaceholder && (
               <div>
-                <hr />
                 <p className="text-muted">
                   Humidity: {weatherData.main.humidity}% <br />
                   Wind: {weatherData.wind.speed} km/h
                 </p>
-                <hr />
               </div>
             )}
             {!isPlaceholder && (
