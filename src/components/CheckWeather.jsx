@@ -34,7 +34,7 @@ export default function CheckWeather({ onCitySearch }) {
 
   return (
     <Form onSubmit={handleSubmit} className="ms-0 d-flex flex-direction-row align-items-start">
-      <Form.Group className="mb-3 px-2" controlId="searchCity">
+      <Form.Group className="mb-1 px-2" controlId="searchCity">
         <Form.Control
           type="text"
           placeholder="Search a city..."

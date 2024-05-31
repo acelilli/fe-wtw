@@ -47,10 +47,18 @@ export default function MainContent() {
         </Row>
         <Row>
           <div className="mt-2 mb-0">
-            <p className="text-muted mb-0">
+            <p className="text-muted mb-0 credits">
               Icons created by{" "}
               <a href="https://www.flaticon.com/authors/freepik" title="sun icons">
                 Freepik - Flaticon
+              </a>{" "}
+              & Video by{" "}
+              <a href="https://pixabay.com/users/artdio2020-8194567/?utm_source=link-attribution&utm_medium=referral&utm_campaign=video&utm_content=45959">
+                Art Dio
+              </a>{" "}
+              from{" "}
+              <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=video&utm_content=45959">
+                Pixabay
               </a>
             </p>
           </div>

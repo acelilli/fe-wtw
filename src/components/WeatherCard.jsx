@@ -36,13 +36,13 @@ export default function WeatherCard({ weatherData }) {
     weatherData.main.temp === 0;
 
   return (
-    <Card className="ms-0 w-100 rounded-5">
+    <Card className="ms-0 w-100 rounded-5 data-card">
       <Card.Body className="position-relative">
         <Row className="p-2 d-flex justify-content-center align-items-center">
           <Col xs={12} md={6} className="justify-content-center my-0">
-            <h1 className="my-2">{weatherData.name}</h1>
+            <h3 className="my-1">{weatherData.name}</h3>{" "}
             <p className="text-muted pt-0 mb-0">{weatherData.weather[0].description}</p>
-            {!isPlaceholder && <p className="fs-4 mb-0">{kelvinToCelsius(weatherData.main.temp)}°C</p>}
+            {!isPlaceholder && <p className="fs-5 mb-0">{kelvinToCelsius(weatherData.main.temp)}°C</p>}
           </Col>
           <Col xs={12} md={6} className=" justify-content-center my-1 py-0">
             <div>
@@ -50,12 +50,12 @@ export default function WeatherCard({ weatherData }) {
             </div>
           </Col>
         </Row>
-        <hr className="ms-1" />
+        <hr className="mx-1 my-1" />
         <Row className="d-flex justify-content-space-evenly">
-          <Col xs={12} md={6} className="mt-1 p-0">
+          <Col xs={12} md={6} className="my-0 py-2">
             {!isPlaceholder && (
               <div>
-                <p className="text-muted mt-1">
+                <p className="text-muted mb-0">
                   Min: {kelvinToCelsius(weatherData.main.temp_min)}°C
                   <br />
                   Max: {kelvinToCelsius(weatherData.main.temp_max)}°C
@@ -63,25 +63,23 @@ export default function WeatherCard({ weatherData }) {
               </div>
             )}
           </Col>
-          <Col xs={12} md={6} className="mt-1 ">
+          <Col xs={12} md={6} className="my-0 py-2">
             {!isPlaceholder && (
               <div>
-                <p className="text-muted">
+                <p className="text-muted mb-0">
                   Humidity: {weatherData.main.humidity}% <br />
                   Wind: {weatherData.wind.speed} km/h
                 </p>
               </div>
             )}
-            {!isPlaceholder && (
-              <Button
-                className="px-1 mt-2 mb-1"
-                variant="primary"
-                onClick={() => handleAddDestination(weatherData.name)}
-              >
-                Add Destination <FavoriteBorderRoundedIcon />
-              </Button>
-            )}
           </Col>
+        </Row>
+        <Row className="mt-0 justify-content-center">
+          {!isPlaceholder && (
+            <Button className="p-1 mt-2 mb-1 mybtn" onClick={() => handleAddDestination(weatherData.name)}>
+              <FavoriteBorderRoundedIcon />
+            </Button>
+          )}
         </Row>
       </Card.Body>
     </Card>

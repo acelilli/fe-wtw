@@ -7,7 +7,7 @@
   padding: 1rem;
   margin: 1rem;
   border-radius: 50px;
-  background-color: rgb(117, 180, 227, 0.3);
+  background-color: rgb(117, 180, 227, 0.6);
   font-family: "Montserrat Alternates", sans-serif;
 }
 
@@ -18,4 +18,40 @@ h4 {
   font-family: "Lobster Two", sans-serif;
   font-weight: 700;
   font-style: normal;
+}
+
+.credits {
+  font-size: smaller;
+}
+
+.mybtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  gap: 10px;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.4px;
+  color: #7e97b8;
+  background-color: #e0e8ef;
+  border-style: solid;
+  border-width: 2px 2px 2px 2px;
+  border-color: rgba(255, 255, 255, 0.333);
+  border-radius: 40px 40px 40px 40px;
+  padding: 16px 24px 16px 28px;
+  transform: translate(0px, 0px) rotate(0deg);
+  transition: 0.2s;
+  box-shadow: -4px -2px 16px 0px #ffffff, 4px 2px 16px 0px rgb(95 157 231 / 48%);
+}
+
+.mybtn:hover {
+  color: #516d91;
+  background-color: #e5edf5;
+  box-shadow: -2px -1px 8px 0px #ffffff, 2px 1px 8px 0px rgb(95 157 231 / 48%);
+}
+
+.mybtn:active {
+  box-shadow: none;
 }

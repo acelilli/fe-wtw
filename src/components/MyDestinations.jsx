@@ -44,7 +44,7 @@ export default function MyDestinations({ onCitySearch }) {
             myDestinations.map((city, index) => (
               <li
                 key={index}
-                className="bg-white p-1 px-2 rounded-3 d-flex justify-content-between align-items-center"
+                className="data-card bg-white p-1 px-2 rounded-3 d-flex justify-content-between align-items-center"
               >
                 {city}{" "}
                 <div>
