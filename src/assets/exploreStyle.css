@@ -7,19 +7,90 @@
 }
 
 .cityImg img {
-  height: auto;
+  height: 100%;
   width: 100%;
   object-fit: cover;
-  object-position: bottom;
-  margin-bottom: -25%;
+  object-position: center 30%;
   border-radius: 30px;
 }
 
 .rounded-carousel .carousel-inner {
   border-radius: 30px;
   overflow: hidden;
+  box-shadow: rgba(159, 159, 159, 0.17) 0px -23px 25px 0px inset, rgba(118, 118, 118, 0.15) 0px -36px 30px 0px inset,
+    rgba(151, 151, 151, 0.1) 0px -79px 40px 0px inset, rgba(0, 85, 255, 0.06) 0px 2px 1px,
+    rgba(85, 85, 85, 0.09) 0px 4px 2px;
+  color: black;
 }
 
 .rounded-carousel .carousel-item img {
   border-radius: 30px;
+}
+/*
+:root {
+  --hue: 240; 
+  --bg: oklch(35% 0.3 var(--hue));
+  --text: oklch(85% 0.1 var(--hue));
+  --shadow: oklch(28% 0.1 var(--hue));
+  --highlight: oklch(65% 0.05 var(--hue));
+}
+
+.carousel-city-style {
+  text-shadow:
+     regular text-shadow  0 0.15ch 15px var(--shadow),
+    /* text-shadow highlight  0 -2px 0 var(--highlight);
+}*/
+
+.carousel-city-weather {
+  background: rgb(223, 225, 235, 0.3);
+  border-radius: 50px;
+  /*backdrop-filter: blur(2px);*/
+  box-shadow: rgba(159, 159, 159, 0.17) 0px -23px 25px 0px inset, rgba(118, 118, 118, 0.15) 0px -36px 30px 0px inset,
+    rgba(151, 151, 151, 0.1) 0px -79px 40px 0px inset, rgba(0, 85, 255, 0.06) 0px 2px 1px,
+    rgba(85, 85, 85, 0.09) 0px 4px 2px;
+  color: black;
+}
+
+/* Per schermi piccoli, come i telefoni */
+@media (max-width: 576px) {
+  .cityImg {
+    height: 8rem;
+  }
+  .cityImg img {
+    height: 100%;
+    width: 100%;
+  }
+}
+
+/* Per schermi medi, come i tablet */
+@media (min-width: 577px) and (max-width: 768px) {
+  .cityImg {
+    height: 10rem;
+  }
+  .cityImg img {
+    height: 100%;
+    width: 100%;
+  }
+}
+
+/* Per schermi grandi, come i monitor */
+@media (min-width: 769px) and (max-width: 1200px) {
+  .cityImg {
+    height: 13rem;
+  }
+  .cityImg img {
+    height: 100%;
+    width: 100%;
+  }
+}
+
+/* Per schermi molto grandi, come i grandi monitor */
+@media (min-width: 1201px) {
+  .cityImg {
+    height: 13rem;
+  }
+  .cityImg img {
+    height: 100%;
+    width: 100%;
+  }
 }

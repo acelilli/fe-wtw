@@ -48,6 +48,9 @@ export default function MainContent() {
         <Row>
           <div className="mt-2 mb-0">
             <p className="text-muted mb-0 credits">
+              WhatTheWeather - React App by <a href="https://github.com/acelilli">Ace Lilli</a>
+            </p>
+            <p className="text-muted mb-0 credits">
               Icons created by{" "}
               <a href="https://www.flaticon.com/authors/freepik" title="sun icons">
                 Freepik - Flaticon
