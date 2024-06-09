@@ -17,7 +17,10 @@ export default function CheckWeather({ onCitySearch }) {
       console.log("Fetched city Data:", cityData);
       if (cityData.length > 0) {
         const weatherData = await dispatch(fetchWeather(cityData[0])).unwrap();
-        onCitySearch(weatherData);
+        onCitySearch({
+          myCityData: [cityData[0]], // Popola l'array con cityData
+          weatherData: [weatherData], // Popola l'array con myWeather
+        });
       } else {
         alert("Nessuna città trovata!");
       }

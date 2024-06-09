@@ -6,18 +6,21 @@ import { useSelector } from "react-redux";
 import FavoriteBorderRoundedIcon from "@mui/icons-material/FavoriteBorderRounded";
 import "../assets/weatherCard.css";
 
-export default function WeatherCard({ weatherData }) {
+export default function WeatherCard({ cityWeatherData }) {
   const dispatch = useDispatch();
   const myDestinations = useSelector((state) => state.destinations.myDestinations);
+
+  const weatherData = cityWeatherData.weatherData[0];
+  const cityData = cityWeatherData.myCityData[0];
 
   // Funzione add Destination
   const handleAddDestination = () => {
     dispatch(
       addDestination({
-        name: weatherData.name,
+        name: cityData.name,
       })
     );
-    console.log("Destinations after adding:", [...myDestinations, weatherData.name]);
+    console.log("Destinations after adding:", [...myDestinations, cityData.name]);
   };
 
   // nel weatherData, la temperatura viene stampatain Kelvin, non in Celsius. Quindi definisco una funzione per ritornarmi la temperatura in celius
@@ -31,7 +34,7 @@ export default function WeatherCard({ weatherData }) {
   const iconPath = `${process.env.PUBLIC_URL}/icons/${icon}.png`;
 
   const isPlaceholder =
-    weatherData.name === "Your City here" &&
+    cityData.name === "Your City here" &&
     weatherData.weather[0].description === "Weather description" &&
     weatherData.main.temp === 0;
 
@@ -40,7 +43,7 @@ export default function WeatherCard({ weatherData }) {
       <Card.Body className="position-relative">
         <Row className="p-2 d-flex justify-content-center align-items-center">
           <Col xs={12} md={6} className="justify-content-center my-0">
-            <h3 className="my-1">{weatherData.name}</h3>{" "}
+            <h3 className="my-1">{cityData.name}</h3>{" "}
             <p className="text-muted pt-0 mb-0">{weatherData.weather[0].description}</p>
             {!isPlaceholder && <p className="fs-5 mb-0">{kelvinToCelsius(weatherData.main.temp)}°C</p>}
           </Col>

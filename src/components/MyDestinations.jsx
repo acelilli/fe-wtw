@@ -25,7 +25,11 @@ export default function MyDestinations({ onCitySearch }) {
       console.log("Fetched city data from destinations:", cityData);
       if (cityData.length > 0) {
         const weatherData = await dispatch(fetchWeather(cityData[0])).unwrap();
-        onCitySearch(weatherData);
+        const cityWeatherData = {
+          myCityData: cityData,
+          weatherData: [weatherData],
+        };
+        onCitySearch(cityWeatherData);
       } else {
         alert("No data found from your destinations");
       }

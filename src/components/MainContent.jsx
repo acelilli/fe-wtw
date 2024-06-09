@@ -12,16 +12,24 @@ export default function MainContent() {
   // Voglio vedere comunque la card WeatherCard ma con del contenuto placeholder.
   // Definisco il contenuto placholder della card
   const placeholderWeatherData = {
-    name: "Your City here",
-    weather: [{ description: "Weather description" }],
-    main: { temp: 0 },
-    wind: { speed: "Wind speed" },
+    myCityData: [
+      {
+        name: "Your City here",
+      },
+    ],
+    weatherData: [
+      {
+        weather: [{ description: "Weather description", icon: "" }],
+        main: { temp: 0, temp_min: 0, temp_max: 0, humidity: 0 },
+        wind: { speed: 0 },
+      },
+    ],
   };
   // Estraiamo i dati meteo delle città dallo stato globale
   const citiesWeather = useSelector((state) => state.explore.citiesWeather);
-  const [weatherData, setWeatherData] = useState(placeholderWeatherData);
+  const [cityWeatherData, setCityWeatherData] = useState(placeholderWeatherData);
   const handleCitySearch = (data) => {
-    setWeatherData(data);
+    setCityWeatherData(data);
   };
 
   //Gestione delle destinations, dell'array del loro component
@@ -42,7 +50,7 @@ export default function MainContent() {
           </Col>
           <Col md={7} className="d-flex flex-column align-items-center py-3 px-4">
             <CheckWeather onCitySearch={handleCitySearch} />
-            {weatherData && <WeatherCard weatherData={weatherData} addDestination={addDestination} />}
+            {cityWeatherData && <WeatherCard cityWeatherData={cityWeatherData} addDestination={addDestination} />}
           </Col>
         </Row>
         <Row>

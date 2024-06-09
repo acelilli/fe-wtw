@@ -15,7 +15,9 @@ const initialState = {
   cityError: null,
   // i dati meteo:
   weatherLoading: false,
-  cityWeatherData: [], // qui verranno caricati i dati meteo delle città
+  // cityWeatherData: [], // qui verranno caricati i dati meteo delle città
+  // per far fronte alla problematica dell'API, in cui talvolta le coordinate non corrispondono alla città ricercata, modifico cityWeatherData in modo tale che contenga due array: nel primo metto i dati della città ricercata, quelli contenuti in cityData, nell'altro i dati che ottengo dalla fetch meteo.
+  cityWeatherData: { myCityData: [], weatherData: [] },
   weatherError: null,
 };
 
@@ -35,7 +37,7 @@ export const fetchWeather = createAsyncThunk("checkWeather/fetchWeather", async 
   try {
     const response = await axios.get(`${weatherApi}?lat=${cityData.lat}&lon=${cityData.lon}&appid=${apik}`);
     const myWeather = response.data;
-    return myWeather;
+    return cityData, myWeather;
   } catch (error) {
     throw new Error("Impossibile ottenere i dati meteo.");
   }
@@ -68,7 +70,10 @@ const checkWeatherSlice = createSlice({
       })
       .addCase(fetchWeather.fulfilled, (state, action) => {
         state.weatherLoading = false;
-        state.cityWeatherData = action.payload;
+        state.cityWeatherData = {
+          myCityData: [action.payload.cityData], // Popola l'array con cityData
+          weatherData: [action.payload.myWeather], // Popola l'array con myWeather
+        };
       })
       .addCase(fetchWeather.rejected, (state, action) => {
         state.weatherLoading = false;
